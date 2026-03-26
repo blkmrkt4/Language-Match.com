@@ -442,186 +442,164 @@ button {
     position: relative;
 }
 
-/* Phone Mockup */
-.phone-mockup {
+/* Screenshot Phone Frame */
+.screenshot-phone {
+    position: relative;
     width: 100%;
     max-width: 280px;
     margin: 0 auto;
-}
-
-.phone-frame {
-    position: relative;
     background: #000;
     border-radius: 36px;
-    padding: 12px;
+    padding: 10px;
     box-shadow:
         0 0 0 2px rgba(255, 255, 255, 0.1),
         0 20px 60px rgba(0, 0, 0, 0.5),
         0 0 80px rgba(255, 215, 0, 0.06);
 }
 
-.phone-notch {
+.screenshot-phone::before {
+    content: '';
     position: absolute;
-    top: 12px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 28px;
+    width: 100px;
+    height: 24px;
     background: #000;
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 14px 14px;
     z-index: 10;
 }
 
-.phone-screen {
-    background: var(--bg-dark-2);
+.screenshot-phone img {
+    width: 100%;
+    height: auto;
     border-radius: 26px;
-    overflow: hidden;
-    padding: 36px 16px 0;
+    display: block;
 }
 
-.mock-status-bar {
+.screenshot-phone.phone-sm {
+    max-width: 200px;
+    border-radius: 28px;
+    padding: 8px;
+}
+
+.screenshot-phone.phone-sm::before {
+    width: 72px;
+    height: 18px;
+    top: 8px;
+    border-radius: 0 0 10px 10px;
+}
+
+.screenshot-phone.phone-sm img {
+    border-radius: 20px;
+}
+
+/* Hero phone float animation */
+.hero .screenshot-phone {
+    animation: phoneFloat 4s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Feature Showcase (alternating screenshot + text) */
+.feature-showcases {
     display: flex;
-    justify-content: space-between;
-    padding: 0 4px 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 48px;
 }
 
-.mock-icons {
-    font-size: 0.5rem;
-    letter-spacing: 2px;
-}
-
-.mock-app-header {
+.feature-showcase {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 4px 0 12px;
-}
-
-.mock-logo-f {
-    width: 22px;
-    height: 22px;
-    border-radius: 5px;
-    object-fit: cover;
-}
-
-.mock-app-name {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.mock-profile-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 16px;
+    gap: 28px;
     text-align: center;
 }
 
-.mock-avatar {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), var(--teal));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.feature-showcase-text {
+    max-width: 420px;
 }
 
-.mock-avatar-placeholder {
-    opacity: 0.7;
-}
-
-.mock-name {
-    font-size: 1rem;
+.feature-showcase-text h3 {
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
 }
 
-.mock-badges {
+.feature-showcase-text p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Swipe Demo with Screenshots */
+.swipe-phones {
     display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.mock-badge {
-    padding: 2px 8px;
-    border-radius: 100px;
-    font-size: 0.6rem;
+.swipe-phone-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.swipe-phone-label {
+    font-size: 0.75rem;
     font-weight: 600;
-}
-
-.mock-badge.native {
-    background: rgba(74, 144, 217, 0.2);
-    color: var(--blue);
-}
-
-.mock-badge.learning {
-    background: rgba(78, 205, 196, 0.15);
-    color: var(--teal);
-}
-
-.mock-location {
-    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
-    margin-bottom: 12px;
 }
 
-.mock-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
+.swipe-phone-label.label-coral { color: var(--coral); }
+.swipe-phone-label.label-teal { color: var(--teal); }
+.swipe-phone-label.label-blue { color: var(--blue); }
 
-.mock-action {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+/* Sessions with Screenshots */
+.sessions-phones {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: default;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
-.mock-action.pass {
-    background: rgba(255, 107, 107, 0.15);
-    color: var(--coral);
+/* Meet Your Muse Section */
+.muse-section {
+    padding: 64px 0;
+    background: var(--bg-dark-2);
 }
 
-.mock-action.star {
-    background: rgba(255, 165, 2, 0.15);
-    color: var(--gold-warm);
-}
-
-.mock-action.match {
-    background: rgba(78, 205, 196, 0.15);
-    color: var(--teal);
-}
-
-.mock-tab-bar {
+.muse-phones {
     display: flex;
-    justify-content: space-around;
-    padding: 12px 0;
-    margin-top: 12px;
-    border-top: 1px solid var(--border-subtle);
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
 }
 
-.mock-tab {
-    font-size: 0.55rem;
-    color: var(--text-muted);
-    font-weight: 500;
+.muse-phone-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.mock-tab.active {
-    color: var(--blue);
+.muse-phone-caption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 240px;
 }
 
 /* ============ STATS ============ */
@@ -931,123 +909,7 @@ button {
     align-items: start;
 }
 
-.session-demo-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.session-demo-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-
-.session-demo-live-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 10px;
-    background: rgba(255, 107, 107, 0.2);
-    color: var(--coral);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    border-radius: 100px;
-    text-transform: uppercase;
-}
-
-.session-demo-timer {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.session-demo-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-}
-
-.session-demo-goal {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-}
-
-.session-demo-goal-label {
-    color: var(--gold);
-    font-weight: 600;
-}
-
-.session-demo-host {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-.session-demo-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), var(--teal));
-    flex-shrink: 0;
-}
-
-.session-demo-host-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.session-demo-host-name {
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.session-demo-host-tier {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-}
-
-.session-demo-participants {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-subtle);
-}
-
-.session-demo-slot {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.session-demo-slot.filled {
-    background: rgba(78, 205, 196, 0.15);
-    color: var(--teal);
-}
-
-.session-demo-slot.open {
-    background: var(--bg-card-hover);
-    color: var(--text-muted);
-    border: 1px dashed var(--border-light);
-}
-
-.session-demo-viewers {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-left: auto;
-}
+/* (session demo card styles removed — now using screenshot phones) */
 
 .sessions-details {
     display: grid;
@@ -1111,6 +973,11 @@ button {
     padding: 24px;
 }
 
+.step .screenshot-phone {
+    max-width: 160px;
+    margin: 0 auto 16px;
+}
+
 .step-number {
     display: flex;
     align-items: center;
@@ -1149,99 +1016,7 @@ button {
     padding: 64px 0;
 }
 
-.message-demo {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.demo-pane {
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    text-align: center;
-}
-
-.demo-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px;
-    color: var(--text-muted);
-}
-
-.demo-bubble {
-    border-radius: var(--radius-md);
-    padding: 16px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    text-align: left;
-}
-
-.demo-original {
-    background: rgba(78, 205, 196, 0.12);
-    border: 1px solid rgba(78, 205, 196, 0.2);
-    color: var(--text-primary);
-    font-size: 1.05rem;
-    font-weight: 500;
-}
-
-.demo-translation {
-    background: rgba(74, 144, 217, 0.1);
-    border: 1px solid rgba(74, 144, 217, 0.2);
-    color: var(--text-primary);
-}
-
-.demo-translation-title {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--blue);
-    margin-bottom: 6px;
-}
-
-.demo-grammar {
-    background: rgba(255, 107, 107, 0.08);
-    border: 1px solid rgba(255, 107, 107, 0.15);
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-}
-
-.demo-grammar-title {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--coral);
-    margin-bottom: 6px;
-}
-
-.demo-grammar em {
-    color: var(--gold);
-    font-style: normal;
-    font-weight: 600;
-}
-
-.demo-hint {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 8px;
-}
-
-.demo-left {
-    order: 2;
-}
-
-.demo-center {
-    order: 1;
-}
-
-.demo-right {
-    order: 3;
-}
+/* (old demo bubble styles removed — now using screenshot phones) */
 
 /* ============ LANGUAGES ============ */
 .languages {
@@ -1545,15 +1320,54 @@ button {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .message-demo {
-        grid-template-columns: 1fr 1.2fr 1fr;
-        gap: 12px;
-        max-width: 720px;
+    .swipe-phones {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
     }
 
-    .demo-left { order: 1; }
-    .demo-center { order: 2; }
-    .demo-right { order: 3; }
+    .swipe-phones .screenshot-phone {
+        max-width: 200px;
+    }
+
+    .sessions-phones {
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .sessions-phones .screenshot-phone {
+        max-width: 220px;
+    }
+
+    .muse-phones {
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .muse-phones .screenshot-phone {
+        max-width: 220px;
+    }
+
+    .feature-showcase {
+        flex-direction: row;
+        text-align: left;
+        gap: 40px;
+    }
+
+    .feature-showcase.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .feature-showcase .screenshot-phone {
+        max-width: 220px;
+        flex-shrink: 0;
+    }
+
+    .step .screenshot-phone {
+        max-width: 160px;
+    }
 
     .stat-number {
         font-size: 2.25rem;
@@ -1597,10 +1411,14 @@ button {
         width: 48px;
         height: 2px;
         background: linear-gradient(to right, var(--gold), transparent);
-        margin-top: 46px;
+        margin-top: 200px;
     }
 
-    .phone-mockup {
+    .step .screenshot-phone {
+        max-width: 180px;
+    }
+
+    .screenshot-phone {
         max-width: 300px;
     }
 }
@@ -1708,7 +1526,7 @@ button {
 @media print {
     .header,
     .mobile-menu,
-    .phone-mockup,
+    .screenshot-phone,
     .country-search-wrap {
         display: none;
     }
